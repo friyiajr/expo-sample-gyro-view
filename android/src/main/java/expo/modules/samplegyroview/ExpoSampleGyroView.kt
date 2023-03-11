@@ -14,7 +14,6 @@ class ExpoSampleGyroView(context: Context, appContext: AppContext) : ExpoView(co
 
     internal val textView = TextView(context).also {
         addView(it)
-        it.text = "START"
         it.layoutParams = LayoutParams(
             android.view.ViewGroup.LayoutParams.MATCH_PARENT,
             android.view.ViewGroup.LayoutParams.MATCH_PARENT,
