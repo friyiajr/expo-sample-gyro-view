@@ -1,11 +1,20 @@
-import { requireNativeViewManager } from 'expo-modules-core';
-import * as React from 'react';
+import { requireNativeViewManager } from "expo-modules-core";
+import * as React from "react";
+import { ViewProps } from "react-native";
 
-import { ExpoSampleGyroViewProps } from './ExpoSampleGyroView.types';
+export type OnGyroEvent = {
+  y: number;
+};
 
-const NativeView: React.ComponentType<ExpoSampleGyroViewProps> =
-  requireNativeViewManager('ExpoSampleGyroView');
+export type Props = {
+  placeholderText?: string;
+  track: boolean;
+  onGyroEvent?: (event: { nativeEvent: OnGyroEvent }) => void;
+} & ViewProps;
 
-export default function ExpoSampleGyroView(props: ExpoSampleGyroViewProps) {
+const NativeView: React.ComponentType<Props> =
+  requireNativeViewManager("ExpoSampleGyroView");
+
+export default function ExpoGyroView(props: Props) {
   return <NativeView {...props} />;
 }
