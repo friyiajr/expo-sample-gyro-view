@@ -15,10 +15,10 @@ class GyroView: UIView {
   
   var timer: Timer? = nil
   
-  lazy var xPositionTextView = UILabel()
+  lazy var yPositionTextView = UILabel()
   
   func setPlaceholderText(_ text: String?) {
-    self.xPositionTextView.text = text ?? "Start"
+    self.yPositionTextView.text = text ?? "Start"
   }
   
   func setEventDispatcher(_ eventDispatcher: EventDispatcher) {
@@ -35,7 +35,7 @@ class GyroView: UIView {
           let x = data.acceleration.x
           let y = data.acceleration.y
           let z = data.acceleration.z
-          self.xPositionTextView.text = "\(round(y * 100) / 100.0)"
+          self.yPositionTextView.text = "\(round(y * 100) / 100.0)"
           self.onGyroEvent?([
             "y": y
           ])
@@ -56,12 +56,12 @@ class GyroView: UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    self.addSubview(xPositionTextView)
-    self.xPositionTextView.translatesAutoresizingMaskIntoConstraints = false
-    self.xPositionTextView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-    self.xPositionTextView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-    self.xPositionTextView.font = UIFont.systemFont(ofSize: 100)
-    self.xPositionTextView.text = "START"
+    self.addSubview(yPositionTextView)
+    self.yPositionTextView.translatesAutoresizingMaskIntoConstraints = false
+    self.yPositionTextView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+    self.yPositionTextView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+    self.yPositionTextView.font = UIFont.systemFont(ofSize: 100)
+    self.yPositionTextView.text = "START"
   }
   
   required init?(coder: NSCoder) {

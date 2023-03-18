@@ -28,7 +28,7 @@ class GyroEventListener(
         if(isTracking && event != null) {
             val rawY = -event.values[1]
             if(event.timestamp % 5 == 0L) {
-                cb(String.format("%.2f", rawY))
+                cb(String.format("%.2f", rawY / 10))
             }
         }
     }
